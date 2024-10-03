@@ -16,7 +16,7 @@ class WordsController < ApplicationController
     if @word.save
       redirect_to @word, notice: "Word was sucessefully created!"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

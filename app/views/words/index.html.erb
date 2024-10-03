@@ -1,11 +1,11 @@
 <h1>Personal Dictionary</h1>
 
+<%= link_to "Add new word ", new_word_path %>
+
 <ul>
   <% @words.each do |word| %>
     <li>
-      
         <%= link_to word.title, word%>
-      
     </li>
   <% end %>
 </ul>
