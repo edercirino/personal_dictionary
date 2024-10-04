@@ -32,8 +32,8 @@ class WordsController < ApplicationController
   end
 
   def destroy
-    @task.destroy
-    redirect_to words_url, notice: "Word was sucessfully deleted!"
+    @word.destroy
+    redirect_to root_path, notice: "Word was sucessfully deleted!"
   end
 
   private
