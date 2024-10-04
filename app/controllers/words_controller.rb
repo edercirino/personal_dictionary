@@ -1,7 +1,7 @@
 class WordsController < ApplicationController
   before_action :set_word, only: [ :show, :edit, :update, :destroy ]
   def index
-      @words = Word.all
+      @words = Word.all.order("title ASC")
   end
 
   def show
@@ -25,7 +25,7 @@ class WordsController < ApplicationController
 
   def update
     if @word.update(word_params)
-      redired_to @word, notice: "Word was sucessfully updated!"
+      redirect_to @word, notice: "Word was sucessfully updated!"
     else
       render :edit
     end
