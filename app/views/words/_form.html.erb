@@ -1,23 +1,29 @@
+<%= stylesheet_link_tag("style") %>
+
 <%= form_with model: word do |form| %>
 
-<div>
-  <%= form.text_field :title, placeholder: "Word title" %>
-  <% word.errors.full_messages_for(:title).each do |message| %>
-  <div><%=message%></div>
-  <%end%>
-</div>
-<br>
-<div>
-  <%= form.text_area :description, placeholder: "Word description" %>
-  <% word.errors.full_messages_for(:description).each do |message| %>
-  <div><%=message%></div>
-  <%end%>
-</div>
-<br>
-<div>
-  <%= form.submit %>
+<div class="col-sm-4">
+    <div class="col-auto">
+      <%= form.text_field :title, placeholder: "Word title",
+     class: "form-control" %>
+    <% word.errors.full_messages_for(:title).each do |message| %>
+    <div><%=message%></div>
+    <%end%>
+  </div>
+  <br>
+  <div class="col-auto">
+    <%= form.text_area :description, placeholder: "Word description",
+     class: "form-control col-4" %>
+    <% word.errors.full_messages_for(:description).each do |message| %>
+    <div><%=message%></div>
+    <%end%>
+  </div>
+  <br>
+  <div>
+    <%= form.submit class: "btn btn-success" %>
+  </div>
 </div>
 
 <% end %>
 
-<%= link_to "Back", root_path%>
+<%= link_to "Back", root_path, class: "btn btn-warning mt-2" %>

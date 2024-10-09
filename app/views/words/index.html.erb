@@ -1,6 +1,23 @@
+<%= stylesheet_link_tag("style") %>
 <h1>Personal Dictionary</h1>
 
-<%= link_to "Add new word ", new_word_path %>
+<div class="row">
+  <div class="col-auto">
+    <%= search_form_for @q do |f| %>
+
+    <%= f.search_field :title_cont,
+    placeholder: "Search a word",
+    class: "form-control" %>
+    
+  </div>
+
+  <div class="col-auto">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>
+
+<%= link_to "Add new word ", new_word_path, class: "btn btn-secondary mt-2" %>
 
 <ul>
   <% @words.each do |word| %>

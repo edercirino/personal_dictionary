@@ -1,7 +1,10 @@
 class WordsController < ApplicationController
   before_action :set_word, only: [ :show, :edit, :update, :destroy ]
   def index
-      @words = Word.all.order("title ASC")
+      @words = Word.all
+
+      @q = Word.ransack(params[:q])
+      @words = @q.result.order("title ASC")
   end
 
   def show
